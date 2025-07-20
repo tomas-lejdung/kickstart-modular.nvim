@@ -55,7 +55,7 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', leadmultispace = '·' }
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
@@ -72,3 +72,10 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.o.smartindent = true -- Enables smart auto-indenting (e.g. adds indent after `{` in C-like languages)
+vim.o.autoindent = true -- Copies the indentation from the previous line when starting a new one
+vim.o.expandtab = true -- Converts tabs to spaces when you press <Tab>
+vim.o.shiftwidth = 4 -- Number of spaces to use for each indentation level (e.g. when indenting with >>)
+vim.o.tabstop = 4 -- Number of spaces that a <Tab> character counts for visually
+vim.o.softtabstop = 4 -- Number of spaces a <Tab> inserts (and <Backspace> deletes) in insert mode

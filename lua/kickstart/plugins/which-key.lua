@@ -59,10 +59,26 @@ return {
 
       -- Document existing key chains
       spec = {
-        { '<leader>b', group = '[B]uffer' },
+        {
+          '<leader>b',
+          group = '[B]uffer',
+          expand = function()
+            return require('which-key.extras').expand.buf()
+          end,
+        },
+        { '<leader>c', group = '[C]ode' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>x', group = 'diagnostics/quickfix', icon = { icon = '󱖫 ', color = 'green' } },
+        {
+          '<leader>w',
+          group = 'windows',
+          proxy = '<c-w>',
+          expand = function()
+            return require('which-key.extras').expand.win()
+          end,
+        },
       },
     },
   },
