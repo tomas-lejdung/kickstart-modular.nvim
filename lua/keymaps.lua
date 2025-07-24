@@ -59,29 +59,5 @@ vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [D]elet
 vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
 
-local function open_three_column_layout()
-  local total = vim.o.columns
-
-  local left_width = math.floor(total * 0.32)
-  local middle_width = math.floor(total * 0.36)
-  local right_width = total - left_width - middle_width
-
-  vim.cmd 'enew'
-  vim.cmd 'only' -- close all other windows
-  vim.cmd 'vsplit'
-  vim.cmd 'vsplit'
-  vim.cmd 'wincmd h' -- goes to the left window
-  vim.cmd 'wincmd h'
-
-  vim.cmd('vertical resize ' .. left_width)
-  vim.cmd 'wincmd l'
-  vim.cmd('vertical resize ' .. middle_width)
-  vim.cmd 'wincmd l'
-  vim.cmd('vertical resize ' .. right_width)
-  vim.cmd 'wincmd h'
-end
-
-vim.keymap.set('n', '<leader>wr3', open_three_column_layout, { desc = '3-column layout (30/40/30)' })
-
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Safe paste' })
 vim.keymap.set('x', '<leader>d', '"_d', { desc = 'Safe delete' })
