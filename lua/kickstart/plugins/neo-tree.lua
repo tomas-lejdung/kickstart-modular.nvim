@@ -15,10 +15,15 @@ return {
   },
   opts = {
     filesystem = {
+      follow_current_file = {
+        enabled = true, -- Only reveal on command
+        leave_dirs_open = false, -- Close previously auto-expanded dirs
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
         },
+        width = 50,
       },
     },
   },

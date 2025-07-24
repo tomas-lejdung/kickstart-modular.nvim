@@ -79,6 +79,8 @@ return {
             return require('which-key.extras').expand.win()
           end,
         },
+        { '<leader>wr', group = '[R]esize' },
+        { '<leader>m', group = 'Surround', mode = { 'n', 'v' } },
       },
     },
   },

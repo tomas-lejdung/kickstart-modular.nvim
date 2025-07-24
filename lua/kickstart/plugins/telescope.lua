@@ -65,6 +65,10 @@ return {
             },
             n = { ['<c-t>'] = open_with_trouble },
           },
+          file_ignore_patterns = {
+            '^vendor/', -- top-level vendor
+            '/vendor/', -- nested vendor directories
+          },
         },
         -- pickers = {}
         extensions = {
