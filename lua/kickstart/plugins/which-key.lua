@@ -69,6 +69,7 @@ return {
         { '<leader>c', group = '[C]ode' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>T', group = '[T]ests' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>x', group = 'diagnostics/quickfix', icon = { icon = '󱖫 ', color = 'green' } },
         {
@@ -81,6 +82,7 @@ return {
         },
         { '<leader>wr', group = '[R]esize' },
         { '<leader>m', group = 'Surround', mode = { 'n', 'v' } },
+        { 'gr', group = 'Additional LSP' },
       },
     },
   },
