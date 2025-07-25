@@ -93,6 +93,14 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+vim.opt.guicursor = {
+  'n-v-sm:block',
+  'i-ci-ve-c:ver25',
+  'r-cr-o:hor20',
+  't:block-blinkon500-blinkoff500-TermCursor',
+  'a:SmearCursorHideable',
+}
+
 -- [[ Setting options ]]
 require 'options'
 

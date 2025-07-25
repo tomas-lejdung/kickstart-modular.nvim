@@ -42,7 +42,7 @@ end
 
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
-    if vim.fn.argc() == 0 then
+    if vim.fn.argc() == 0 and vim.o.columns > 400 then
       open_three_column_layout(true)
     end
   end,
