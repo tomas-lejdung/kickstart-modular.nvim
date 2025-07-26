@@ -69,6 +69,7 @@ return {
         { '<leader>c', group = '[C]ode' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>tg', group = 'Git' },
         { '<leader>T', group = '[T]ests' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>x', group = 'diagnostics/quickfix', icon = { icon = '󱖫 ', color = 'green' } },

@@ -2,8 +2,12 @@ return {
   {
     'mfussenegger/nvim-dap',
     event = 'VeryLazy',
+    config = function()
+      vim.keymap.set('n', '<leader>tb', function()
+        require('dap').toggle_breakpoint()
+      end, { desc = 'Toggle DAP breakpoint' })
+    end,
   },
-
   {
     'rcarriga/nvim-dap-ui',
     dependencies = {
