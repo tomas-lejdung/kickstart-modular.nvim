@@ -12,7 +12,28 @@ return {
     },
     config = function()
       local dap, dapui = require 'dap', require 'dapui'
-      dapui.setup()
+      dapui.setup {
+        layouts = {
+          {
+            elements = {
+              { id = 'scopes', size = 0.5 },
+              { id = 'breakpoints', size = 0.25 },
+              { id = 'stacks', size = 0.1 },
+              { id = 'watches', size = 0.15 },
+            },
+            position = 'left',
+            size = 50, -- ← change this to control left sidebar width
+          },
+          {
+            elements = {
+              { id = 'repl', size = 0.5 },
+              { id = 'console', size = 0.5 },
+            },
+            position = 'bottom',
+            size = 10,
+          },
+        },
+      }
 
       -- Auto open/close dap-ui
       local dap, dapui = require 'dap', require 'dapui'
@@ -30,13 +51,13 @@ return {
       end
     end,
   },
-  {
-    'theHamsta/nvim-dap-virtual-text',
-    dependencies = { 'mfussenegger/nvim-dap' },
-    config = function()
-      require('nvim-dap-virtual-text').setup()
-    end,
-  },
+  -- {
+  --   'theHamsta/nvim-dap-virtual-text',
+  --   dependencies = { 'mfussenegger/nvim-dap' },
+  --   config = function()
+  --     require('nvim-dap-virtual-text').setup()
+  --   end,
+  -- },
   {
     'leoluz/nvim-dap-go',
     ft = 'go',
