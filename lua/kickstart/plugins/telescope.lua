@@ -65,12 +65,19 @@ return {
             },
             n = { ['<c-t>'] = open_with_trouble },
           },
-          file_ignore_patterns = {
-            '^vendor/', -- top-level vendor
-            '/vendor/', -- nested vendor directories
+          -- file_ignore_patterns = {
+          --   '^vendor/', -- top-level vendor
+          --   '/vendor/', -- nested vendor directories
+          -- },
+        },
+        pickers = {
+          find_files = {
+            file_ignore_patterns = { '^vendor/', '/vendor/' },
+          },
+          live_grep = {
+            file_ignore_patterns = { '^vendor/', '/vendor/' },
           },
         },
-        -- pickers = {}
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),

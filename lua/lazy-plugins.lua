@@ -37,7 +37,8 @@ require('lazy').setup({
 
   -- Theme
   --require 'kickstart.plugins.tokyonight',
-  require 'kickstart.plugins.onedark',
+  --require 'kickstart.plugins.onedark',
+  require 'kickstart.plugins.catppuccin',
 
   require 'kickstart.plugins.todo-comments',
 
