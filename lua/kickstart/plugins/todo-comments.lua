@@ -4,7 +4,19 @@ return {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = true },
+    opts = {
+      signs = true,
+      search = {
+        args = {
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--glob=!vendor/**',
+        },
+      },
+    },
     keys = {
       {
         ']t',

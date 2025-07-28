@@ -23,6 +23,7 @@ return {
         mappings = {
           ['\\'] = 'close_window',
         },
+        position = 'float',
         width = 50,
       },
     },

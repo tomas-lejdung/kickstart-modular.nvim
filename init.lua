@@ -109,6 +109,8 @@ require 'keymaps'
 
 require 'layout'
 
+require 'gomodifytags'
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
 

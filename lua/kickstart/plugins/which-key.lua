@@ -66,7 +66,8 @@ return {
             return require('which-key.extras').expand.buf()
           end,
         },
-        { '<leader>c', group = '[C]ode' },
+        { '<leader>c', group = '[C]ode', mode = { 'n', 'v' } },
+        { '<leader>ct', group = '[T]ags', mode = { 'n', 'v' } },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>tg', group = 'Git' },
