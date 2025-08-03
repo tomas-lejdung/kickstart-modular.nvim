@@ -56,8 +56,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Buffer keymaps
 --  See `:help :bdelete` and `:help :buffer`
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [D]elete current buffer' })
-vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
+-- vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+-- vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
 
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Safe paste' })
 vim.keymap.set('x', '<leader>d', '"_d', { desc = 'Safe delete' })

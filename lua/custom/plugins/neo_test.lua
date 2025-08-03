@@ -11,6 +11,16 @@ return {
     config = function()
       local neotest = require 'neotest'
 
+      local neotest_ns = vim.api.nvim_create_namespace 'neotest'
+      vim.diagnostic.config({
+        virtual_text = {
+          format = function(diagnostic)
+            -- Replace newline and tab characters with space for more compact diagnostics
+            local message = diagnostic.message:gsub('\n', ' '):gsub('\t', ' '):gsub('%s+', ' '):gsub('^%s+', '')
+            return message
+          end,
+        },
+      }, neotest_ns)
       local neotest_golang_opts = {
         runner = 'go',
         testify_enabled = true,
@@ -33,6 +43,11 @@ return {
         neotest.output_panel.clear()
         neotest.run.run()
       end, { desc = 'Run nearest test' })
+
+      vim.keymap.set('n', '<leader>Tl', function()
+        neotest.output_panel.clear()
+        neotest.run.run_last()
+      end, { desc = 'Run last test' })
 
       vim.keymap.set('n', '<leader>Tf', function()
         neotest.output_panel.clear()

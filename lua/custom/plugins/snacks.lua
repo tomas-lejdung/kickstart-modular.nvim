@@ -20,6 +20,31 @@ return {
       scroll = { enabled = false },
       statuscolumn = { enabled = false },
       words = { enabled = false },
+      scratch = { enabled = true, ft = 'markdown' },
+      lazygit = { enabled = true },
+    },
+    keys = {
+      {
+        '<leader>.',
+        function()
+          Snacks.scratch()
+        end,
+        desc = 'Toggle Scratch Buffer',
+      },
+      {
+        '<leader>S',
+        function()
+          Snacks.scratch.select()
+        end,
+        desc = 'Select Scratch Buffer',
+      },
+      {
+        '<leader>gg',
+        function()
+          Snacks.lazygit()
+        end,
+        desc = 'Lazygit',
+      },
     },
   },
 }
