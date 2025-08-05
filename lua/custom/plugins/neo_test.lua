@@ -1,12 +1,22 @@
 return {
   {
     'nvim-neotest/neotest',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
       'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
-      { 'fredrikaverpil/neotest-golang', version = '*' },
+      {
+        'fredrikaverpil/neotest-golang',
+        dependencies = {
+          {
+            'leoluz/nvim-dap-go',
+            'andythigpen/nvim-coverage',
+          },
+        },
+        version = '*',
+      },
     },
     opts = function(_, opts)
       opts.adapters = opts.adapters or {}
@@ -23,16 +33,16 @@ return {
       }
     end,
     config = function(_, opts)
-      local neotest_ns = vim.api.nvim_create_namespace 'neotest'
-      vim.diagnostic.config({
-        virtual_text = {
-          format = function(diagnostic)
-            -- Replace newline and tab characters with space for more compact diagnostics
-            local message = diagnostic.message:gsub('\n', ' '):gsub('\t', ' '):gsub('%s+', ' '):gsub('^%s+', '')
-            return message
-          end,
-        },
-      }, neotest_ns)
+      -- local neotest_ns = vim.api.nvim_create_namespace 'neotest'
+      -- vim.diagnostic.config({
+      --   virtual_text = {
+      --     format = function(diagnostic)
+      --       -- Replace newline and tab characters with space for more compact diagnostics
+      --       local message = diagnostic.message:gsub('\n', ' '):gsub('\t', ' '):gsub('%s+', ' '):gsub('^%s+', '')
+      --       return message
+      --     end,
+      --   },
+      -- }, neotest_ns)
 
       if opts.adapters then
         local adapters = {}

@@ -36,6 +36,29 @@ local function open_three_column_layout(force_split)
   vim.cmd 'wincmd h'
 end
 
+local function four_window_test_setup()
+  local total = vim.o.columns
+
+  local left_width = math.floor(total * 0.32)
+  local middle_width = math.floor(total * 0.34)
+  local test_summary = math.floor(total * 0.12)
+  local right_width = total - left_width - middle_width - test_summary
+
+  -- Resize all windows
+  vim.cmd 'wincmd t'
+  vim.cmd('vertical resize ' .. left_width)
+  vim.cmd 'wincmd l'
+  vim.cmd('vertical resize ' .. middle_width)
+  vim.cmd 'wincmd l'
+  vim.cmd('vertical resize ' .. test_summary)
+  vim.cmd 'wincmd l'
+  vim.cmd('vertical resize ' .. right_width)
+
+  -- Return to middle window
+  vim.cmd 'wincmd t'
+  vim.cmd 'wincmd l'
+end
+
 local function open_single_window()
   vim.cmd 'only'
 end
@@ -55,3 +78,4 @@ end, { desc = '3-column layout (30/40/30)' })
 vim.keymap.set('n', '<leader>wr=', function()
   open_three_column_layout(false)
 end, { desc = 'Resize current 3-column layout' })
+vim.keymap.set('n', '<leader>wrt', four_window_test_setup, { desc = '4-column test layout' })
