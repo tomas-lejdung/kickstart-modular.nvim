@@ -24,7 +24,7 @@ return {
           ['\\'] = 'close_window',
         },
         position = 'float',
-        width = 50,
+        width = 35,
       },
     },
   },
