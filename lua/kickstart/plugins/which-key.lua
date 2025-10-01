@@ -83,6 +83,7 @@ return {
           end,
         },
         { '<leader>wr', group = '[R]esize' },
+        { '<leader>W', group = '[W]Sessions' },
         { '<leader>m', group = 'Surround', mode = { 'n', 'v' } },
         { 'gr', group = 'Additional LSP' },
       },

@@ -17,6 +17,7 @@ return {
         },
         version = '*',
       },
+      'marilari88/neotest-vitest',
     },
     opts = function(_, opts)
       opts.adapters = opts.adapters or {}
@@ -31,6 +32,7 @@ return {
           '-coverprofile=' .. vim.fn.getcwd() .. '/coverage.out',
         },
       }
+      opts.adapters['neotest-vitest'] = {}
     end,
     config = function(_, opts)
       -- local neotest_ns = vim.api.nvim_create_namespace 'neotest'

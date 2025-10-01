@@ -102,6 +102,17 @@ return {
             require('telescope.builtin').lsp_document_symbols {
               symbol_width = 0.6,
               symbol_type_width = 0.4,
+              symbols = {
+                'Class',
+                'Function',
+                'Method',
+                'Constructor',
+                'Interface',
+                'Module',
+                'Namespace',
+                'Enum',
+                'Constant',
+              },
             }
           end, 'Open Document Symbols')
 
