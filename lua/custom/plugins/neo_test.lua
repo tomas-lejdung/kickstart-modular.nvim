@@ -6,15 +6,25 @@ return {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
       'antoinemadec/FixCursorHold.nvim',
-      'nvim-treesitter/nvim-treesitter',
+      {
+        'nvim-treesitter/nvim-treesitter', -- Optional, but recommended
+        branch = 'main', -- NOTE; not the master branch!
+        build = function()
+          vim.cmd ':TSUpdate go'
+        end,
+      },
       {
         'fredrikaverpil/neotest-golang',
+        branch = 'fix/subtest-detection',
         dependencies = {
           {
             'leoluz/nvim-dap-go',
             'andythigpen/nvim-coverage',
           },
         },
+        build = function()
+          vim.system({ 'go', 'install', 'gotest.tools/gotestsum@latest' }):wait() -- Optional, but recommended
+        end,
         version = '*',
       },
       'marilari88/neotest-vitest',
@@ -22,8 +32,8 @@ return {
     opts = function(_, opts)
       opts.adapters = opts.adapters or {}
       opts.adapters['neotest-golang'] = {
-        runner = 'go',
-        testify_enabled = true,
+        runner = 'gotestsum',
+        testify_enabled = false,
         go_test_args = {
           '-v',
           '-race',
