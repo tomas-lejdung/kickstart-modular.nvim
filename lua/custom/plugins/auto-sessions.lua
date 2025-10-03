@@ -13,5 +13,7 @@ return {
   opts = {
     suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
     -- log_level = 'debug',
+    auto_save = false,
+    git_use_branch_name = true,
   },
 }
